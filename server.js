@@ -9,18 +9,6 @@ var io = require('socket.io').listen(server);
 
 app.use(cors())
 
-function getMaxNumber(a) {
-  var m = -Infinity, i = 0, n = a.length;
-
-  for (; i != n; ++i) {
-    if (a[i] > m) {
-      m = a[i];
-    }
-  }
-
-  return m;
-}
-
 app.get('/', (req, res) => {
   res.redirect('/index.html');
 });
