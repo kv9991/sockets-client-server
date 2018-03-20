@@ -13,6 +13,7 @@
   "dependencies": {
     "babel-register": "^6.26.0",
     "cors": "^2.8.4",
+    "expect.js": "^0.3.1",
     "express": "^4.16.3",
     "socket.io": "^2.0.4",
     "treehugger": "0.0.2"

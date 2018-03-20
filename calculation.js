@@ -1,5 +1,6 @@
 const toNumber = number => Number(number);
-const mapToNumbers = array => array.split(" ").map(toNumber);
+const mapToNumbers = string =>
+  string.length > 0 ? string.split(" ").map(toNumber) : []
 
 const reduceMaxNumber = arrayOfNumbers =>
   arrayOfNumbers.reduce((prev, curr) => {
@@ -8,5 +9,7 @@ const reduceMaxNumber = arrayOfNumbers =>
     return prev;
   }, null);
 
-module.exports = numbers => new Promise((resolve, reject) =>
-  resolve(reduceMaxNumber(mapToNumbers(numbers))))
+module.exports = numbers => new Promise((resolve, reject) => {
+  if (typeof numbers !== "string") return reject("Функция не получила строку");
+  return resolve(reduceMaxNumber(mapToNumbers(numbers)))
+});

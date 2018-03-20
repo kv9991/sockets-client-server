@@ -6,7 +6,11 @@ const result = document.getElementById("result");
 
 socket = io.connect('http://localhost:3113', { reconnect: true });
 socket.on('calculations_done', (data) => {
-  result.innerHTML = data;
+  if (typeof data === "number") {
+    result.innerHTML = data;
+  } else {
+    result.innerHTML = "Неверное значение";
+  }
 });
 
 button.addEventListener("click", (e) => {
