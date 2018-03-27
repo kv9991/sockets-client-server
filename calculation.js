@@ -2,12 +2,20 @@ const toNumber = number => Number(number);
 const mapToNumbers = string =>
   string.length > 0 ? string.split(" ").map(toNumber) : []
 
-const reduceMaxNumber = arrayOfNumbers =>
-  arrayOfNumbers.reduce((prev, curr) => {
-    if (prev === null) return curr;
-    if (curr > prev) return curr;
-    return prev;
-  }, null);
+
+const reduceMaxNumber = arrayOfNumbers => {
+  let result;
+
+  if (arrayOfNumbers.length) {
+    for (let i = 0; i <= arrayOfNumbers.length; i++) {
+      if (!result || arrayOfNumbers[i] > result) {
+        result = arrayOfNumbers[i];
+      }
+    }
+  }
+
+  return result;
+}
 
 module.exports = numbers => new Promise((resolve, reject) => {
   if (typeof numbers !== "string") return reject("Функция не получила строку");

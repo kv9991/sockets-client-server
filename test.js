@@ -1,6 +1,7 @@
 require("babel-register");
 const expect = require("expect.js");
 const calculation = require("./calculation");
+const log = console.log;
 
 describe("Вычисления", () => {
   it("Функция должна вернуть число 10", (done) => {
@@ -8,13 +9,15 @@ describe("Вычисления", () => {
       expect(result).to.be.equal(10);
       done();
     })
+      .catch(log);
   });
 
-  it("Функция должна вернуть null", (done) => {
+  it("Функция должна вернуть undefined", (done) => {
     calculation("").then((result) => {
-      expect(result).to.be.equal(null);
+      expect(result).to.be.equal(undefined);
       done();
     })
+      .catch(log)
   });
 
   it("Функция значение не типа String и должна выдать ошибку", (done) => {
