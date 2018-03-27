@@ -3,19 +3,17 @@ const mapToNumbers = string =>
   string.length > 0 ? string.split(" ").map(toNumber) : []
 
 
-const reduceMaxNumber = arrayOfNumbers => {
+const reduceMaxNumber = arrayOfNumbers => { // 0
   let result;
 
-  if (arrayOfNumbers.length) {
-    for (let i = 0; i <= arrayOfNumbers.length; i++) {
-      if (!result || arrayOfNumbers[i] > result) {
-        result = arrayOfNumbers[i];
-      }
+  for (let i = 0; i < arrayOfNumbers.length; i++) { // 1
+    if (!result || arrayOfNumbers[i] > result) { // 2
+      result = arrayOfNumbers[i]; // 3
     }
   }
 
-  return result;
-}
+  return result; // 4
+} // 5
 
 module.exports = numbers => new Promise((resolve, reject) => {
   if (typeof numbers !== "string") return reject("Функция не получила строку");
